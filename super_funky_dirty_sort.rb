@@ -1,5 +1,7 @@
 class FunkySorter
 
+  @swaps = 0
+
   def self.funkysort(init_array)
     index = 1
     until init_array[index].nil?

@@ -1,5 +1,7 @@
 class ScreenPrinter
-  def self.new
-    return [:screen, nil]
+  attr_reader :file_name
+
+  def initialize
+    @file_name = nil
   end
 end

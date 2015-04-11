@@ -1,18 +1,21 @@
 class Fibber
-  def initialize(method_array)
-    @print_method = method_array[0]
-    @file_name = method_array[1]
+  def initialize(print_method)
+    @file_name = print_method.file_name
   end
 
   def print(number)
-    sequence = [ 0, 1]
-    (number - 2).times { sequence << sequence[-2] + sequence[-1] }
-    output = sequence.join(" ")
-    if @print_method == :file
-      File.open("output.txt", 'w') { |file| file.write("#{output}") }
+    output = fibberate(number)
+    if @file_name
+      File.open(@file_name, 'w') { |file| file.write(output) }
     else
       puts output
     end
+  end
+
+  def fibberate(number)
+    sequence = [ 0, 1]
+    (number - 2).times { sequence << sequence[-2] + sequence[-1] }
+    sequence.join(" ")
   end
 end
 
