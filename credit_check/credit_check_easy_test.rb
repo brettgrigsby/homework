@@ -9,8 +9,6 @@ class CreditCheckTest < Minitest::Test
     result = check.credit_check("")
     assert_equal "'' is not acceptable input. Please enter a positive integer.", result
   end
-    
-  end
 
   def test_determine_invalid_input
     check = Checker.new
@@ -65,4 +63,5 @@ class CreditCheckTest < Minitest::Test
     result = check.credit_check("5541808923795240")
     assert_equal result, "The number 5541808923795240 is VALID!"
   end
+
 end

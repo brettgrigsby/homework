@@ -16,21 +16,20 @@ class Checker
   def process(string)
     sum = 0
     string.chars.reverse.each_with_index do |element, index|
-      number = element.to_i
-      number = modify_every_other(number, index)
+      number = modify_every_other(element.to_i, index)
       sum += number
     end
     return sum
   end
 
   def modify_every_other(number, index)
-    number = number * 2 if index % 2 != 0
+    number = number * 2 if index.odd?
     number = number - 9 if number > 9
     return number
   end
 
   def valid?(number)
-    number % 10 == 0 ? "VALID" : "INVALID"
+    number % 10 == 0 ? 'VALID' : 'INVALID'
   end
 
 end
